@@ -102,6 +102,7 @@ class MultiSelectField(models.CharField):
         return choices_selected
 
     def value_to_string(self, obj):
+        return str(obj)
         try:
             value = self.val_from_object(obj)
         except AttributeError:
