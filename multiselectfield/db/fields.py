@@ -102,11 +102,11 @@ class MultiSelectField(models.CharField):
         return choices_selected
 
     def value_to_string(self, obj):
-        return str(obj)
-        try:
-            value = self.val_from_object(obj)
-        except AttributeError:
-            value = self._get_val_from_obj(obj)
+        #try:
+        #    value = self.val_from_object(obj)
+        #except AttributeError:
+        #    value = self._get_val_from_obj(obj)
+        value = super(MultiSelectField, self).value_from_object(obj)
         return self.get_prep_value(value)
 
     def validate(self, value, model_instance):
